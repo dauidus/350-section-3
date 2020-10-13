@@ -1,6 +1,6 @@
 
 
-p.apti-font {
+p.apti-text {
 	font-style: italic; 
 	padding: 10px 10px 10px 15px;
 	font-size: 12px;
@@ -9,8 +9,8 @@ p.apti-font {
 	border-left: 4px solid #0074a2;
     background: #fff;
 }
-#commentsdiv p.apti-text,
-#submitdiv p.apti-text {
+#commentsdiv p.apti-font,
+#submitdiv p.apti-font {
 	margin: 0px 0px 10px 0px;
 }
 

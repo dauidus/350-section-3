@@ -193,79 +193,7 @@ class add_post_type_instructions_settings {
 					'name' => 'instruction',
 					'parent' => 'instruction_check'
 				)
-			);
-            
-            
-            if ( !($pt == 'page') ) {
-                
-                // section
-                add_settings_section(
-                    'taxes_' . $pt,
-                    __( 'Instructional Content for Taxonomies (appears in metaboxes)', $slug ) .':',
-                    '',
-                    $section
-                );
-				
-				if ( is_object_in_taxonomy( $pt, 'category' ) ) {
-					add_settings_field(
-						'categories_check',
-						__( 'Categories', $slug ).':',
-						array( $this, 'check_callback' ),
-						$section,
-						'taxes_' . $pt,
-						array( 
-							$section, 
-							get_option( $section ),
-							'field' => $section.'[categories_check]',
-							'name' => 'categories_check'
-						)
-					);
-					add_settings_field(
-						'categories',
-						__( '', $slug ),
-						array( $this, 'textarea_callback' ),
-						$section,
-						'taxes_' . $pt,
-						array( 
-							$section, 
-							get_option( $section ),
-							'field' => $section.'[categories]',
-							'name' => 'categories',
-							'parent' => 'categories_check'
-						)
-					);
-				}
-
-				if ( is_object_in_taxonomy( $pt, 'post_tag' ) ) {
-					add_settings_field(
-						'tags_check',
-						__( 'Tags', $slug).':',
-						array( $this, 'check_callback' ),
-						$section,
-						'taxes_' . $pt,
-						array( 
-							$section, 
-							get_option( $section ),
-							'field' => $section.'[tags_check]',
-							'name' => 'tags_check'
-						)
-					);
-					add_settings_field(
-						'tags',
-						__( '', $slug ),
-						array( $this, 'textarea_callback' ),
-						$section,
-						'taxes_' . $pt,
-						array( 
-							$section, 
-							get_option( $section ),
-							'field' => $section.'[tags]',
-							'name' => 'tags',
-							'parent' => 'tags_check'
-						)
-					);
-				}
-                
+			);               
                 
                 /* CUSTOM TAXONOMIES
                 * get all custom taxonomies in a post type
@@ -381,24 +309,11 @@ class add_post_type_instructions_settings {
 					'name' => 'publish_check'
 				)
 			);
-			add_settings_field(
-				'publish',
-				__( '', $slug ),
-				array( $this, 'textarea_callback' ),
-				$section,
-				'metabox_' . $pt,
-				array( 
-					$section, 
-					get_option( $section ),
-					'field' => $section.'[publish]',
-					'name' => 'publish',
-					'parent' => 'publish_check'
-				)
-			);
+			
 
 			if ( post_type_supports( $pt, 'thumbnail' )) {
 				add_settings_field(
-					'thumbnail_check',
+					'image_check',
 					__( 'Featured Image', $slug ).':',
 					array( $this, 'check_callback' ),
 					$section,
@@ -411,7 +326,7 @@ class add_post_type_instructions_settings {
 					)
 				);
 				add_settings_field(
-					'thumbnail',
+					'image',
 					__( '', $slug ),
 					array( $this, 'textarea_callback' ),
 					$section,
