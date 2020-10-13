@@ -709,16 +709,7 @@ class add_post_type_instructions_settings {
 	} // end check_callback
 
     
-    public function textarea_callback( $args ) {
-        $name = $args['name'];
-        $field = $args['field'];
-        $value  = isset( $args[1][''.$name.''] ) ? $args[1][''.$name.''] : '';
-        $parent = $args['parent'];
 
-        $html = '<div class="' . $parent . '">';
-        $html .= '<div id="' . $name . '" class="textarea"><textarea id="' . $name . '_input" name="' .$field. '" type="textarea">' .$value. '</textarea></div>';
-        $html .= '<div>';
-        echo $html; ?>
 
         <script>
             (function() {
